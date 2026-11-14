@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#151515">
+  <meta name="description" content="TTFIT: acompanhe alimentação e movimento no seu ritmo.">
+  <title>Entrar | TTFIT</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="auth-page">
+  <a class="skip-link" href="#principal">Pular para o conteúdo</a>
+  <header class="auth-topbar">
+    <a class="brand-lockup brand-lockup-light" href="index.html" aria-label="TTFIT — início">
+      <img class="brand-icon" src="/manus-storage/async-images/cHAF5ILUukEEUvMitb64xl/image-1.webp" alt="">
+      <span class="brand-name">TT<span>FIT</span></span>
+    </a>
+    <a class="topbar-link" href="#ajuda">Precisa de ajuda?</a>
+  </header>
+
+  <main id="principal" class="auth-layout">
+    <section class="auth-story" aria-labelledby="story-title">
+      <div class="story-orbit story-orbit-one" aria-hidden="true"></div>
+      <div class="story-orbit story-orbit-two" aria-hidden="true"></div>
+      <div class="story-copy">
+        <span class="eyebrow eyebrow-light"><span class="status-dot"></span> SAÚDE • COMUNIDADE • IMPACTO</span>
+        <h1 id="story-title">Seu tempo<br>também é<br><span>saúde.</span></h1>
+        <p>Pequenos passos, feitos do seu jeito. O TTFIT aproxima cuidado, movimento e uma comunidade mais ativa.</p>
+        <div class="story-note">
+          <span class="note-mark" aria-hidden="true">↗</span>
+          <span>Bem-estar que cabe na rotina<br><strong>e cresce junto com a comunidade.</strong></span>
+        </div>
+      </div>
+      <div class="story-index" aria-hidden="true"><span>TTFIT</span><span>01 / 03</span></div>
+    </section>
+
+    <section class="auth-panel" aria-labelledby="login-title">
+      <div class="auth-card">
+        <span class="eyebrow eyebrow-dark">BEM-VINDA(O) DE VOLTA</span>
+        <h2 id="login-title">Entre no seu ritmo.</h2>
+        <p class="auth-intro">Acesse seu espaço de saúde e movimento.</p>
+
+        <form class="form-stack" action="dashboard.html" method="get">
+          <label class="field-label" for="email">E-mail</label>
+          <input class="text-input" id="email" name="email" type="email" placeholder="voce@exemplo.com" autocomplete="email" required>
+
+          <div class="field-row field-row-between">
+            <label class="field-label" for="password">Senha</label>
+            <a class="text-link text-link-small" href="#recuperar">Esqueci minha senha</a>
+          </div>
+          <input class="text-input" id="password" name="password" type="password" placeholder="Sua senha" autocomplete="current-password" required>
+
+          <label class="check-row" for="remember">
+            <input id="remember" name="remember" type="checkbox">
+            <span class="check-box" aria-hidden="true"></span>
+            <span>Lembrar meu login no próximo acesso</span>
+          </label>
+          <button class="button button-primary button-wide" type="submit">Entrar <span aria-hidden="true">↗</span></button>
+          <p class="demo-note">Protótipo demonstrativo: o acesso não valida nem salva dados.</p>
+        </form>
+
+        <div class="auth-divider"><span>AINDA NÃO TEM CONTA?</span></div>
+        <a class="button button-outline button-wide" href="#cadastro">Cadastrar nova conta <span aria-hidden="true">＋</span></a>
+
+        <details class="inline-disclosure recovery-disclosure" id="recuperar">
+          <summary>Precisa redefinir sua senha?</summary>
+          <div class="disclosure-body">
+            <p>Informe seu e-mail. O envio é apenas ilustrativo nesta versão estática.</p>
+            <form action="index.html" method="get" class="compact-form">
+              <label class="field-label" for="recovery-email">E-mail cadastrado</label>
+              <input class="text-input" id="recovery-email" name="email" type="email" placeholder="voce@exemplo.com">
+              <button class="button button-dark button-wide" type="submit">Continuar</button>
+            </form>
+          </div>
+        </details>
+      </div>
+    </section>
+  </main>
+
+  <section class="signup-section" id="cadastro" aria-labelledby="signup-title">
+    <div class="signup-heading">
+      <span class="eyebrow eyebrow-dark">UM BOM COMEÇO</span>
+      <h2 id="signup-title">Crie seu espaço.</h2>
+      <p>Um perfil simples ajuda a organizar seus hábitos. Nesta demonstração, as informações não são armazenadas.</p>
+    </div>
+    <details class="signup-details">
+      <summary class="button button-dark">Abrir formulário de cadastro <span aria-hidden="true">＋</span></summary>
+      <form class="signup-form" action="dashboard.html" method="get">
+        <div class="form-grid">
+          <div><label class="field-label" for="full-name">Nome</label><input class="text-input" id="full-name" name="nome" type="text" placeholder="Seu nome" autocomplete="name" required></div>
+          <div><label class="field-label" for="signup-email">E-mail</label><input class="text-input" id="signup-email" name="email" type="email" placeholder="voce@exemplo.com" autocomplete="email" required></div>
+          <div><label class="field-label" for="signup-password">Senha</label><input class="text-input" id="signup-password" name="senha" type="password" placeholder="Crie uma senha" autocomplete="new-password" required></div>
+          <div><label class="field-label" for="age">Idade</label><input class="text-input" id="age" name="idade" type="number" min="13" max="120" placeholder="Ex.: 28"></div>
+          <div><label class="field-label" for="weight">Peso atual (kg)</label><input class="text-input" id="weight" name="peso" type="number" min="1" max="500" step="0.1" placeholder="Ex.: 68,4"></div>
+          <div><label class="field-label" for="height">Altura (cm)</label><input class="text-input" id="height" name="altura" type="number" min="50" max="260" placeholder="Ex.: 166"></div>
+          <div><label class="field-label" for="activity-level">Atividade física</label><select class="text-input" id="activity-level" name="atividade"><option value="">Selecione</option><option>Leve</option><option>Moderada</option><option>Intensa</option></select></div>
+          <div><label class="field-label" for="focus">Seu foco</label><select class="text-input" id="focus" name="foco"><option value="">Selecione</option><option>Perda de peso</option><option>Ganho de massa</option><option>Manutenção</option></select></div>
+        </div>
+        <button class="button button-primary" type="submit">Concluir cadastro demonstrativo <span aria-hidden="true">→</span></button>
+        <p class="demo-note">Os formulários desta etapa servem para demonstrar a interface e não enviam dados para um serviço.</p>
+      </form>
+    </details>
+  </section>
+
+  <footer class="site-footer auth-footer" id="ajuda">
+    <span>TTFIT <span class="footer-separator">/</span> Saúde com impacto.</span>
+    <a href="dashboard.html">Explorar demonstração <span aria-hidden="true">→</span></a>
+  </footer>
+</body>
+</html>

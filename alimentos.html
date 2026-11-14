@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f3f0eb">
+  <meta name="description" content="Consulte a composição nutricional de alimentos por 100 gramas no protótipo TTFIT.">
+  <title>Consulta alimentar | TTFIT</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="app-page">
+  <a class="skip-link" href="#principal">Pular para o conteúdo</a>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <a class="brand-lockup brand-lockup-dark" href="dashboard.html" aria-label="TTFIT — visão geral">
+        <img class="brand-icon" src="/manus-storage/async-images/cHAF5ILUukEEUvMitb64xl/image-1.webp" alt="">
+        <span class="brand-name">TT<span>FIT</span></span>
+      </a>
+      <span class="sidebar-caption">SEU ESPAÇO</span>
+      <nav class="side-nav" aria-label="Navegação principal">
+        <a class="nav-item" href="dashboard.html"><span class="nav-icon" aria-hidden="true">◫</span> Visão geral</a>
+        <a class="nav-item nav-item-active" href="alimentos.html" aria-current="page"><span class="nav-icon" aria-hidden="true">⌕</span> Consulta alimentar</a>
+        <a class="nav-item" href="dashboard.html#ranking"><span class="nav-icon" aria-hidden="true">↗</span> Comunidade</a>
+      </nav>
+      <div class="sidebar-bottom">
+        <div class="sidebar-prompt"><span class="prompt-line"></span><p>Informação clara<br><strong>para escolhas conscientes.</strong></p></div>
+        <a class="nav-item nav-item-muted" href="index.html"><span class="nav-icon" aria-hidden="true">↩</span> Sair da demonstração</a>
+      </div>
+    </aside>
+
+    <main id="principal" class="app-main">
+      <header class="workspace-header">
+        <div class="breadcrumb"><a href="dashboard.html">TTFIT</a><span aria-hidden="true">/</span><strong>CONSULTA ALIMENTAR</strong></div>
+        <div class="header-actions">
+          <details class="language-control">
+            <summary><span aria-hidden="true">文</span> Idioma <strong>PT</strong><span class="chevron" aria-hidden="true">⌄</span></summary>
+            <div class="language-menu"><span class="language-current">Português <small>ATUAL</small></span><span class="language-disabled">English <small>EM BREVE</small></span><p>Seletor visual nesta versão estática.</p></div>
+          </details>
+          <div class="user-chip"><span class="user-avatar">CN</span><span>Camila Nunes</span></div>
+        </div>
+      </header>
+
+      <div class="page-content food-page-content">
+        <section class="food-intro">
+          <span class="eyebrow eyebrow-dark">INFORMAÇÃO PARA ESCOLHAS CONSCIENTES</span>
+          <h1>O que tem<br><span class="intro-light">no seu prato?</span></h1>
+          <p>Pesquise um alimento e veja a referência nutricional por porção de 100 g.</p>
+        </section>
+
+        <section class="search-panel" aria-labelledby="search-title">
+          <h2 id="search-title">Encontre um alimento</h2>
+          <form class="search-form" action="alimentos.html" method="get">
+            <label class="visually-hidden" for="alimento">Nome do alimento</label>
+            <span class="search-symbol" aria-hidden="true">⌕</span>
+            <input class="search-input" id="alimento" name="alimento" type="search" value="Abacate, cru" placeholder="Ex.: abacate, cru" required>
+            <button class="button button-primary" type="submit">Pesquisar <span aria-hidden="true">↗</span></button>
+          </form>
+          <p class="demo-note">Busca demonstrativa: o resultado exibido abaixo é um exemplo fixo.</p>
+        </section>
+
+        <section class="food-result-section" aria-labelledby="result-title">
+          <div class="result-heading"><div><span class="eyebrow eyebrow-dark">RESULTADO DE EXEMPLO</span><h2 id="result-title">Abacate, cru</h2></div><span class="portion-badge">PORÇÃO <strong>100 g</strong></span></div>
+          <article class="nutrition-card">
+            <div class="food-photo-wrap">
+              <img class="food-photo" src="/manus-storage/abacate_03e8407b.jpg" alt="Abacate cortado ao meio sobre fundo escuro" width="2048" height="2048">
+              <span class="photo-caption">ALIMENTO IN NATURA</span>
+            </div>
+            <div class="nutrition-details">
+              <div class="energy-block"><span class="metric-label">ENERGIA</span><strong>96 <small>kcal</small></strong><span class="energy-caption">por 100 g da parte comestível</span></div>
+              <div class="nutrient-list">
+                <div class="nutrient-row"><span><span class="nutrient-bullet nutrient-bullet-red"></span>Proteínas</span><strong>1,2 <small>g</small></strong></div>
+                <div class="nutrient-row"><span><span class="nutrient-bullet nutrient-bullet-dark"></span>Açúcares</span><strong class="nutrient-na">Não discriminados</strong></div>
+              </div>
+              <p class="source-note">Referência: Tabela Brasileira de Composição de Alimentos (TACO), 4ª edição. A tabela não discrimina açúcares para este alimento.</p>
+              <a class="source-link" href="https://www.gov.br/agricultura/pt-br/assuntos/inspecao/produtos-vegetal/legislacao-programas-nacionais-e-seguranca-dos-alimentos-1/legislacao/legislacao-vinhos-e-bebidas/tabela-brasileira-de-composicao-de-alimentos_taco_2011.pdf" target="_blank" rel="noopener noreferrer">Consultar tabela de referência <span aria-hidden="true">↗</span></a>
+            </div>
+          </article>
+        </section>
+
+        <a class="button button-dark back-button" href="dashboard.html"><span aria-hidden="true">←</span> Voltar para a tela principal</a>
+        <p class="disclaimer">Informações ilustrativas para fins de protótipo; os valores podem variar conforme o alimento e sua preparação. Não substituem orientação profissional.</p>
+      </div>
+    </main>
+  </div>
+</body>
+</html>
