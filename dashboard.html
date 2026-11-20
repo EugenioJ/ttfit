@@ -7,6 +7,8 @@
   <meta name="description" content="Seu espaço TTFIT para acompanhar movimento, perfil e comunidade.">
   <title>Visão geral | TTFIT</title>
   <link rel="stylesheet" href="styles.css">
+  <script defer src="js/demo-store.js"></script>
+  <script defer src="js/dashboard.js"></script>
 </head>
 <body class="app-page">
   <a class="skip-link" href="#principal">Pular para o conteúdo</a>
@@ -20,11 +22,11 @@
       <nav class="side-nav" aria-label="Navegação principal">
         <a class="nav-item nav-item-active" href="dashboard.html" aria-current="page"><span class="nav-icon" aria-hidden="true">◫</span> Visão geral</a>
         <a class="nav-item" href="alimentos.html"><span class="nav-icon" aria-hidden="true">⌕</span> Consulta alimentar</a>
-        <a class="nav-item" href="#ranking"><span class="nav-icon" aria-hidden="true">↗</span> Comunidade</a>
+        <a class="nav-item" href="comunidade.html"><span class="nav-icon" aria-hidden="true">↗</span> Comunidade</a>
       </nav>
       <div class="sidebar-bottom">
         <div class="sidebar-prompt"><span class="prompt-line"></span><p>Seu ritmo já é<br><strong>um bom começo.</strong></p></div>
-        <a class="nav-item nav-item-muted" href="index.html"><span class="nav-icon" aria-hidden="true">↩</span> Sair da demonstração</a>
+        <a class="nav-item nav-item-muted logout-link" href="index.html"><span class="nav-icon" aria-hidden="true">↩</span> Sair</a>
       </div>
     </aside>
 
@@ -34,9 +36,9 @@
         <div class="header-actions">
           <details class="language-control">
             <summary><span aria-hidden="true">文</span> Idioma <strong>PT</strong><span class="chevron" aria-hidden="true">⌄</span></summary>
-            <div class="language-menu"><span class="language-current">Português <small>ATUAL</small></span><span class="language-disabled">English <small>EM BREVE</small></span><p>Seletor visual nesta versão estática.</p></div>
+            <div class="language-menu"><span class="language-current">Português <small>ATUAL</small></span><span class="language-disabled">English <small>EM BREVE</small></span><p>Seletor visual nesta versão de demonstração.</p></div>
           </details>
-          <div class="user-chip"><span class="user-avatar">CN</span><span>Camila Nunes</span></div>
+          <div class="user-chip"><span class="user-avatar" id="user-avatar">CN</span><span id="user-name">Camila Nunes</span></div>
         </div>
       </header>
 
@@ -44,7 +46,7 @@
         <section class="dashboard-intro">
           <div>
             <span class="eyebrow eyebrow-dark">SEU MOVIMENTO, SUA HISTÓRIA</span>
-            <h1>Oi, Camila<span class="red-period">.</span><br><span class="intro-light">Um passo de cada vez.</span></h1>
+            <h1>Oi, <span id="greeting-name">Camila</span><span class="red-period">.</span><br><span class="intro-light">Um passo de cada vez.</span></h1>
             <p>Acompanhe seus hábitos e celebre o que já conquistou.</p>
           </div>
           <a class="button button-primary intro-cta" href="alimentos.html">Consultar alimento <span aria-hidden="true">↗</span></a>
@@ -53,46 +55,48 @@
         <section class="profile-section" aria-labelledby="profile-title">
           <div class="section-heading">
             <div><span class="eyebrow eyebrow-dark">RESUMO DO PERFIL</span><h2 id="profile-title">Seus dados</h2></div>
-            <span class="sample-label"><span class="sample-dot"></span> DADOS DE DEMONSTRAÇÃO</span>
+            <span class="sample-label"><span class="sample-dot"></span> SALVO NESTE NAVEGADOR</span>
           </div>
           <div class="profile-panel">
             <div class="metric-grid">
-              <article class="metric-card"><span class="metric-label">PESO ATUAL</span><strong class="metric-value">68,4 <small>kg</small></strong><span class="metric-caption">Seu ponto de partida</span></article>
-              <article class="metric-card"><span class="metric-label">ALTURA</span><strong class="metric-value">1,66 <small>m</small></strong><span class="metric-caption">Perfil pessoal</span></article>
-              <article class="metric-card"><span class="metric-label">IDADE</span><strong class="metric-value">28 <small>anos</small></strong><span class="metric-caption">Informação do perfil</span></article>
-              <article class="metric-card metric-card-focus"><span class="metric-label">SEU FOCO</span><strong class="focus-value">Perda de<br>peso</strong><span class="metric-caption">Objetivo demonstrativo</span></article>
-              <article class="metric-card metric-card-days"><span class="metric-label">EXERCÍCIOS NA SEMANA</span><strong class="metric-value">4 <small>dias</small></strong><span class="metric-caption">Movimento no seu ritmo</span></article>
+              <article class="metric-card"><span class="metric-label">PESO ATUAL</span><strong class="metric-value"><span id="profile-weight">68,4</span> <small>kg</small></strong><span class="metric-caption">Seu ponto de partida</span></article>
+              <article class="metric-card"><span class="metric-label">ALTURA</span><strong class="metric-value"><span id="profile-height">1,66</span> <small>m</small></strong><span class="metric-caption">Perfil pessoal</span></article>
+              <article class="metric-card"><span class="metric-label">IDADE</span><strong class="metric-value"><span id="profile-age">28</span> <small>anos</small></strong><span class="metric-caption">Informação do perfil</span></article>
+              <article class="metric-card metric-card-focus"><span class="metric-label">SEU FOCO</span><strong class="focus-value" id="profile-focus">Perda de<br>peso</strong><span class="metric-caption">Objetivo escolhido</span></article>
+              <article class="metric-card metric-card-days"><span class="metric-label">EXERCÍCIOS NA SEMANA</span><strong class="metric-value"><span id="profile-days">4</span> <small>dias</small></strong><span class="metric-caption">Movimento no seu ritmo</span></article>
             </div>
             <details class="quick-edit">
               <summary><span class="edit-symbol" aria-hidden="true">✳</span> Editar informações rapidamente <span class="chevron" aria-hidden="true">⌄</span></summary>
               <div class="edit-content">
-                <p>Atualize os campos de exemplo do seu perfil. As alterações não serão salvas nesta demonstração.</p>
-                <form action="dashboard.html" method="get" class="edit-form">
-                  <label><span class="field-label">Peso atual (kg)</span><input class="text-input" type="number" name="peso" value="68.4" step="0.1"></label>
-                  <label><span class="field-label">Altura (cm)</span><input class="text-input" type="number" name="altura" value="166"></label>
-                  <label><span class="field-label">Idade</span><input class="text-input" type="number" name="idade" value="28"></label>
-                  <label><span class="field-label">Foco</span><select class="text-input" name="foco"><option>Perda de peso</option><option>Ganho de massa</option></select></label>
-                  <label><span class="field-label">Dias com exercício</span><select class="text-input" name="dias"><option>4</option><option>1</option><option>2</option><option>3</option><option>5</option><option>6</option><option>7</option></select></label>
-                  <button class="button button-dark" type="submit">Atualizar demonstração <span aria-hidden="true">→</span></button>
+                <p>As mudanças aparecem na tela e ficam salvas somente neste navegador.</p>
+                <form id="profile-form" class="edit-form" novalidate>
+                  <label><span class="field-label">Peso atual (kg)</span><input class="text-input" type="number" name="peso" min="20" max="350" step="0.1" required></label>
+                  <label><span class="field-label">Altura (cm)</span><input class="text-input" type="number" name="altura" min="100" max="240" step="1" required></label>
+                  <label><span class="field-label">Idade</span><input class="text-input" type="number" name="idade" min="13" max="120" required></label>
+                  <label><span class="field-label">Foco</span><select class="text-input" name="foco" required><option>Perda de peso</option><option>Ganho de massa</option><option>Manutenção</option></select></label>
+                  <label><span class="field-label">Atividade física</span><select class="text-input" name="atividade" required><option>Leve</option><option>Moderada</option><option>Intensa</option></select></label>
+                  <label><span class="field-label">Dias com exercício</span><select class="text-input" name="dias" required><option value="0">0</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option></select></label>
+                  <button class="button button-dark" type="submit">Salvar alterações <span aria-hidden="true">→</span></button>
                 </form>
+                <p class="form-message" id="profile-feedback" role="status" aria-live="polite"></p>
               </div>
             </details>
           </div>
         </section>
 
         <div class="dashboard-grid">
-          <section class="ranking-section" id="ranking" aria-labelledby="ranking-title">
+          <section class="ranking-section" aria-labelledby="ranking-title">
             <div class="section-heading section-heading-compact">
-              <div><span class="eyebrow eyebrow-dark">GENTE EM MOVIMENTO</span><h2 id="ranking-title">Ranking da semana</h2></div>
-              <span class="ranking-period">ESTA SEMANA <span aria-hidden="true">↗</span></span>
+              <div><span class="eyebrow eyebrow-dark">GENTE EM MOVIMENTO</span><h2 id="ranking-title">Prévia da semana</h2></div>
+              <a class="ranking-period" href="comunidade.html">VER COMUNIDADE <span aria-hidden="true">↗</span></a>
             </div>
             <div class="ranking-panel">
               <ol class="ranking-list">
                 <li class="ranking-row"><span class="rank-number">01</span><span class="rank-avatar rank-avatar-red">AL</span><span class="rank-person"><strong>Ana Lima</strong><small>Consistência em movimento</small></span><span class="rank-count"><strong>9</strong><small>atividades</small></span></li>
-                <li class="ranking-row ranking-row-you"><span class="rank-number">02</span><span class="rank-avatar rank-avatar-dark">CN</span><span class="rank-person"><strong>Camila Nunes <em>VOCÊ</em></strong><small>Ritmo constante</small></span><span class="rank-count"><strong>7</strong><small>atividades</small></span></li>
+                <li class="ranking-row ranking-row-you"><span class="rank-number">02</span><span class="rank-avatar rank-avatar-dark" id="rank-avatar-user">CN</span><span class="rank-person"><strong><span id="rank-user-name">Camila Nunes</span> <em>VOCÊ</em></strong><small>Ritmo constante</small></span><span class="rank-count"><strong>7</strong><small>atividades</small></span></li>
                 <li class="ranking-row"><span class="rank-number">03</span><span class="rank-avatar rank-avatar-cream">LM</span><span class="rank-person"><strong>Lucas Martins</strong><small>Mais um passo hoje</small></span><span class="rank-count"><strong>5</strong><small>atividades</small></span></li>
               </ol>
-              <p class="ranking-footnote">Posições e atividades fictícias para apresentação do protótipo.</p>
+              <p class="ranking-footnote">Ranking fictício para apresentação; não há compartilhamento com outros usuários.</p>
             </div>
           </section>
 
@@ -107,7 +111,7 @@
             <a class="food-callout" href="alimentos.html"><span class="food-callout-icon" aria-hidden="true">＋</span><span><small>ALIMENTAÇÃO</small><strong>Consultar um alimento</strong></span><span class="callout-arrow" aria-hidden="true">↗</span></a>
           </aside>
         </div>
-        <p class="disclaimer">Dados de perfil, ranking e interações são exemplos estáticos. O protótipo não oferece orientação médica ou nutricional personalizada.</p>
+        <p class="disclaimer">Demonstração local: perfil guardado neste navegador e ranking fictício. Não oferece orientação médica ou nutricional personalizada.</p>
       </div>
     </main>
   </div>

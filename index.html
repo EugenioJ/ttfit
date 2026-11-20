@@ -7,6 +7,8 @@
   <meta name="description" content="TTFIT: acompanhe alimentação e movimento no seu ritmo.">
   <title>Entrar | TTFIT</title>
   <link rel="stylesheet" href="styles.css">
+  <script defer src="js/demo-store.js"></script>
+  <script defer src="js/auth.js"></script>
 </head>
 <body class="auth-page">
   <a class="skip-link" href="#principal">Pular para o conteúdo</a>
@@ -15,7 +17,7 @@
       <img class="brand-icon" src="/manus-storage/async-images/cHAF5ILUukEEUvMitb64xl/image-1.webp" alt="">
       <span class="brand-name">TT<span>FIT</span></span>
     </a>
-    <a class="topbar-link" href="#ajuda">Precisa de ajuda?</a>
+    <a class="topbar-link" href="#ajuda">Sobre esta demonstração</a>
   </header>
 
   <main id="principal" class="auth-layout">
@@ -36,13 +38,13 @@
 
     <section class="auth-panel" aria-labelledby="login-title">
       <div class="auth-card">
-        <span class="eyebrow eyebrow-dark">BEM-VINDA(O) DE VOLTA</span>
+        <span class="eyebrow eyebrow-dark">ACESSO DE APRESENTAÇÃO</span>
         <h2 id="login-title">Entre no seu ritmo.</h2>
-        <p class="auth-intro">Acesse seu espaço de saúde e movimento.</p>
+        <p class="auth-intro">Use a conta de teste ou crie um perfil local para explorar o protótipo.</p>
 
-        <form class="form-stack" action="dashboard.html" method="get">
+        <form id="login-form" class="form-stack" novalidate>
           <label class="field-label" for="email">E-mail</label>
-          <input class="text-input" id="email" name="email" type="email" placeholder="voce@exemplo.com" autocomplete="email" required>
+          <input class="text-input" id="email" name="email" type="email" placeholder="voce@exemplo.com" autocomplete="username" required>
 
           <div class="field-row field-row-between">
             <label class="field-label" for="password">Senha</label>
@@ -53,23 +55,29 @@
           <label class="check-row" for="remember">
             <input id="remember" name="remember" type="checkbox">
             <span class="check-box" aria-hidden="true"></span>
-            <span>Lembrar meu login no próximo acesso</span>
+            <span>Lembrar meu acesso neste navegador</span>
           </label>
+
+          <aside class="demo-account-box" aria-label="Credenciais da conta de demonstração">
+            <div><strong>Conta de demonstração</strong><span>E-mail: <code>teste@gmail.com</code></span><span>Senha: <code>teste</code></span></div>
+          </aside>
           <button class="button button-primary button-wide" type="submit">Entrar <span aria-hidden="true">↗</span></button>
-          <p class="demo-note">Protótipo demonstrativo: o acesso não valida nem salva dados.</p>
+          <p class="form-message" id="login-message" role="status" aria-live="polite"></p>
+          <p class="demo-note">Demonstração local: autenticação e dados funcionam apenas neste navegador; não use senha real.</p>
         </form>
 
-        <div class="auth-divider"><span>AINDA NÃO TEM CONTA?</span></div>
-        <a class="button button-outline button-wide" href="#cadastro">Cadastrar nova conta <span aria-hidden="true">＋</span></a>
+        <div class="auth-divider"><span>AINDA NÃO TEM PERFIL?</span></div>
+        <a class="button button-outline button-wide" id="open-signup-link" href="#cadastro">Cadastrar nova conta <span aria-hidden="true">＋</span></a>
 
         <details class="inline-disclosure recovery-disclosure" id="recuperar">
           <summary>Precisa redefinir sua senha?</summary>
           <div class="disclosure-body">
-            <p>Informe seu e-mail. O envio é apenas ilustrativo nesta versão estática.</p>
-            <form action="index.html" method="get" class="compact-form">
-              <label class="field-label" for="recovery-email">E-mail cadastrado</label>
-              <input class="text-input" id="recovery-email" name="email" type="email" placeholder="voce@exemplo.com">
-              <button class="button button-dark button-wide" type="submit">Continuar</button>
+            <p>A recuperação por e-mail não está habilitada nesta demonstração.</p>
+            <form id="recovery-form" class="compact-form" novalidate>
+              <label class="field-label" for="recovery-email">E-mail</label>
+              <input class="text-input" id="recovery-email" name="email" type="email" placeholder="voce@exemplo.com" required>
+              <button class="button button-dark button-wide" type="submit">Ver opções</button>
+              <p class="form-message" id="recovery-message" role="status" aria-live="polite"></p>
             </form>
           </div>
         </details>
@@ -81,30 +89,32 @@
     <div class="signup-heading">
       <span class="eyebrow eyebrow-dark">UM BOM COMEÇO</span>
       <h2 id="signup-title">Crie seu espaço.</h2>
-      <p>Um perfil simples ajuda a organizar seus hábitos. Nesta demonstração, as informações não são armazenadas.</p>
+      <p>O novo perfil fica salvo somente no armazenamento local deste navegador e não é enviado a um servidor.</p>
     </div>
-    <details class="signup-details">
+    <details class="signup-details" id="signup-details">
       <summary class="button button-dark">Abrir formulário de cadastro <span aria-hidden="true">＋</span></summary>
-      <form class="signup-form" action="dashboard.html" method="get">
+      <form id="signup-form" class="signup-form" novalidate>
         <div class="form-grid">
-          <div><label class="field-label" for="full-name">Nome</label><input class="text-input" id="full-name" name="nome" type="text" placeholder="Seu nome" autocomplete="name" required></div>
+          <div><label class="field-label" for="full-name">Nome</label><input class="text-input" id="full-name" name="nome" type="text" placeholder="Seu nome" autocomplete="name" minlength="2" maxlength="60" required></div>
           <div><label class="field-label" for="signup-email">E-mail</label><input class="text-input" id="signup-email" name="email" type="email" placeholder="voce@exemplo.com" autocomplete="email" required></div>
-          <div><label class="field-label" for="signup-password">Senha</label><input class="text-input" id="signup-password" name="senha" type="password" placeholder="Crie uma senha" autocomplete="new-password" required></div>
-          <div><label class="field-label" for="age">Idade</label><input class="text-input" id="age" name="idade" type="number" min="13" max="120" placeholder="Ex.: 28"></div>
-          <div><label class="field-label" for="weight">Peso atual (kg)</label><input class="text-input" id="weight" name="peso" type="number" min="1" max="500" step="0.1" placeholder="Ex.: 68,4"></div>
-          <div><label class="field-label" for="height">Altura (cm)</label><input class="text-input" id="height" name="altura" type="number" min="50" max="260" placeholder="Ex.: 166"></div>
-          <div><label class="field-label" for="activity-level">Atividade física</label><select class="text-input" id="activity-level" name="atividade"><option value="">Selecione</option><option>Leve</option><option>Moderada</option><option>Intensa</option></select></div>
-          <div><label class="field-label" for="focus">Seu foco</label><select class="text-input" id="focus" name="foco"><option value="">Selecione</option><option>Perda de peso</option><option>Ganho de massa</option><option>Manutenção</option></select></div>
+          <div><label class="field-label" for="signup-password">Senha (mínimo 8 caracteres)</label><input class="text-input" id="signup-password" name="senha" type="password" placeholder="Crie uma senha" autocomplete="new-password" minlength="8" required></div>
+          <div><label class="field-label" for="age">Idade</label><input class="text-input" id="age" name="idade" type="number" min="13" max="120" placeholder="Ex.: 28" required></div>
+          <div><label class="field-label" for="weight">Peso atual (kg)</label><input class="text-input" id="weight" name="peso" type="number" min="20" max="350" step="0.1" placeholder="Ex.: 68,4" required></div>
+          <div><label class="field-label" for="height">Altura (cm)</label><input class="text-input" id="height" name="altura" type="number" min="100" max="240" step="1" placeholder="Ex.: 166" required></div>
+          <div><label class="field-label" for="activity-level">Atividade física</label><select class="text-input" id="activity-level" name="atividade" required><option value="">Selecione</option><option>Leve</option><option>Moderada</option><option>Intensa</option></select></div>
+          <div><label class="field-label" for="focus">Seu foco</label><select class="text-input" id="focus" name="foco" required><option value="">Selecione</option><option>Perda de peso</option><option>Ganho de massa</option><option>Manutenção</option></select></div>
+          <div><label class="field-label" for="signup-days">Dias com exercício na semana</label><select class="text-input" id="signup-days" name="dias" required><option value="">Selecione</option><option value="0">0</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option></select></div>
         </div>
-        <button class="button button-primary" type="submit">Concluir cadastro demonstrativo <span aria-hidden="true">→</span></button>
-        <p class="demo-note">Os formulários desta etapa servem para demonstrar a interface e não enviam dados para um serviço.</p>
+        <button class="button button-primary" type="submit">Criar perfil local <span aria-hidden="true">→</span></button>
+        <p class="form-message" id="signup-message" role="status" aria-live="polite"></p>
+        <p class="demo-note">Este cadastro é apenas para apresentação. Não substitui uma conta com autenticação em servidor.</p>
       </form>
     </details>
   </section>
 
   <footer class="site-footer auth-footer" id="ajuda">
     <span>TTFIT <span class="footer-separator">/</span> Saúde com impacto.</span>
-    <a href="dashboard.html">Explorar demonstração <span aria-hidden="true">→</span></a>
+    <span>Protótipo local · sem conexão com banco de dados</span>
   </footer>
 </body>
 </html>
