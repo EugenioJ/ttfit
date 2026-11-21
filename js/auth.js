@@ -42,7 +42,7 @@
         }
         window.location.assign("dashboard.html");
       } catch (error) {
-        showMessage(message, error.message || "Não foi possível entrar neste navegador.", "error");
+        showMessage(message, error.message || "Não foi possível entrar.", "error");
       } finally {
         submitButton.disabled = false;
         submitButton.removeAttribute("aria-busy");
@@ -104,7 +104,7 @@
         }
         window.location.assign("dashboard.html");
       } catch (error) {
-        showMessage(message, error.message || "Não foi possível salvar o perfil neste navegador.", "error");
+        showMessage(message, error.message || "Não foi possível criar o perfil.", "error");
       } finally {
         submitButton.disabled = false;
         submitButton.removeAttribute("aria-busy");
@@ -121,7 +121,7 @@
       if (!recoveryForm.reportValidity()) return;
       showMessage(
         document.getElementById("recovery-message"),
-        "A recuperação por e-mail não está disponível nesta versão. Use a conta de apresentação ou crie um perfil local.",
+        "A recuperação por e-mail não está disponível nesta versão. Use a conta de teste ou crie um perfil.",
         "error"
       );
     });

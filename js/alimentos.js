@@ -140,7 +140,7 @@
     document.getElementById("user-avatar").textContent = user.name.trim().split(/\s+/).slice(0, 2).map((part) => part[0]).join("").toLocaleUpperCase("pt-BR");
     try {
       const response = await fetch("food-data.json", { cache: "no-cache" });
-      if (!response.ok) throw new Error("Falha ao carregar o catálogo local.");
+      if (!response.ok) throw new Error("Falha ao carregar o catálogo.");
       const data = await response.json();
       foods = Array.isArray(data.items) ? data.items : [];
       const datalist = document.getElementById("food-suggestions");
@@ -149,12 +149,12 @@
         option.value = food.name;
         return option;
       }));
-      if (foods.length === 0) throw new Error("O catálogo local está vazio.");
+      if (foods.length === 0) throw new Error("Nenhum alimento está disponível para consulta.");
       const initial = new URLSearchParams(window.location.search).get("alimento") || "abacate";
       search(initial);
     } catch (_error) {
       resultSection.hidden = true;
-      showFeedback("Não foi possível carregar os dados alimentares locais.", "error");
+      showFeedback("Não foi possível carregar os dados alimentares.", "error");
     }
   }
 

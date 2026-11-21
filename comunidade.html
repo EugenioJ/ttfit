@@ -4,10 +4,11 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#f3f0eb">
-  <meta name="description" content="Comunidade TTFIT: uma prévia demonstrativa de movimento coletivo e impacto social.">
+  <meta name="description" content="Comunidade TTFIT: movimento coletivo e impacto social.">
   <title>Comunidade | TTFIT</title>
   <link rel="stylesheet" href="styles.css">
   <script defer src="js/demo-store.js"></script>
+  <script defer src="js/user-menu.js"></script>
   <script defer src="js/comunidade.js"></script>
 </head>
 <body class="app-page">
@@ -26,7 +27,6 @@
       </nav>
       <div class="sidebar-bottom">
         <div class="sidebar-prompt"><span class="prompt-line"></span><p>Juntos, cada passo<br><strong>ganha significado.</strong></p></div>
-        <a class="nav-item nav-item-muted logout-link" href="index.html"><span class="nav-icon" aria-hidden="true">↩</span> Sair</a>
       </div>
     </aside>
 
@@ -36,9 +36,12 @@
         <div class="header-actions">
           <details class="language-control">
             <summary><span aria-hidden="true">文</span> Idioma <strong>PT</strong><span class="chevron" aria-hidden="true">⌄</span></summary>
-            <div class="language-menu"><span class="language-current">Português <small>ATUAL</small></span><span class="language-disabled">English <small>EM BREVE</small></span><p>Seletor visual nesta versão de demonstração.</p></div>
+            <div class="language-menu"><span class="language-current">Português <small>ATUAL</small></span><span class="language-disabled">English <small>EM BREVE</small></span><p>A tradução do conteúdo ainda não está disponível.</p></div>
           </details>
-          <div class="user-chip"><span class="user-avatar" id="user-avatar">CN</span><span id="user-name">Camila Nunes</span></div>
+          <details class="user-control">
+            <summary class="user-chip"><span class="user-avatar" id="user-avatar">FR</span><span class="user-name" id="user-name">Fratta</span><span class="chevron user-chevron" aria-hidden="true">⌄</span></summary>
+            <div class="user-menu"><a class="user-menu-item" href="perfil.html">Meu perfil <span aria-hidden="true">↗</span></a><button class="user-menu-item user-menu-logout" type="button" data-logout>Sair <span aria-hidden="true">↩</span></button></div>
+          </details>
         </div>
       </header>
 
@@ -47,24 +50,17 @@
           <div>
             <span class="eyebrow eyebrow-dark">GENTE EM MOVIMENTO</span>
             <h1>Juntos, cada passo<br><span class="intro-light">ganha significado.</span></h1>
-            <p>Uma prévia de como a comunidade TTFIT pode celebrar constância, inclusão e bem-estar coletivo.</p>
+            <p>A comunidade TTFIT celebra constância, inclusão e bem-estar coletivo.</p>
           </div>
-          <span class="community-week">SEMANA DE APRESENTAÇÃO <span aria-hidden="true">↗</span></span>
-        </section>
-
-        <section class="community-notice" aria-labelledby="community-notice-title">
-          <span class="community-notice-mark" aria-hidden="true">i</span>
-          <div><h2 id="community-notice-title">Prévia fictícia para demonstração</h2><p>Os nomes e as atividades desta tela são exemplos. Nada é publicado nem compartilhado com outros usuários. E-mail e dados físicos do perfil não aparecem aqui.</p></div>
+          <span class="community-week">ATIVIDADES DA SEMANA <span aria-hidden="true">↗</span></span>
         </section>
 
         <div class="community-layout">
           <section class="community-ranking-card" aria-labelledby="community-ranking-title">
             <div class="section-heading">
               <div><span class="eyebrow eyebrow-dark">CONSISTÊNCIA, NÃO COMPETIÇÃO</span><h2 id="community-ranking-title">Ranking da semana</h2></div>
-              <span class="portion-badge">EXEMPLO <strong>LOCAL</strong></span>
             </div>
             <ol class="community-list" id="community-list" aria-live="polite"></ol>
-            <p class="ranking-footnote">As atividades são fictícias e usadas apenas para apresentar a interface.</p>
           </section>
 
           <aside class="community-side-column">
@@ -78,7 +74,6 @@
             <a class="food-callout" href="dashboard.html"><span class="food-callout-icon" aria-hidden="true">←</span><span><small>SEU ESPAÇO</small><strong>Voltar à visão geral</strong></span><span class="callout-arrow" aria-hidden="true">↗</span></a>
           </aside>
         </div>
-        <p class="disclaimer">Nesta etapa a comunidade é apenas visual. Não existe ranking em tempo real nem troca de dados entre contas.</p>
       </div>
     </main>
   </div>

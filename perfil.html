@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f3f0eb">
+  <meta name="description" content="Gerencie seu perfil TTFIT e atualize seus objetivos de movimento e bem-estar.">
+  <title>Meu perfil | TTFIT</title>
+  <link rel="stylesheet" href="styles.css">
+  <script defer src="js/demo-store.js"></script>
+  <script defer src="js/user-menu.js"></script>
+  <script defer src="js/perfil.js"></script>
+</head>
+<body class="app-page">
+  <a class="skip-link" href="#principal">Pular para o conteúdo</a>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <a class="brand-lockup brand-lockup-dark" href="dashboard.html" aria-label="TTFIT — visão geral">
+        <img class="brand-icon" src="/manus-storage/async-images/cHAF5ILUukEEUvMitb64xl/image-1.webp" alt="">
+        <span class="brand-name">TT<span>FIT</span></span>
+      </a>
+      <span class="sidebar-caption">SEU ESPAÇO</span>
+      <nav class="side-nav" aria-label="Navegação principal">
+        <a class="nav-item" href="dashboard.html"><span class="nav-icon" aria-hidden="true">◫</span> Visão geral</a>
+        <a class="nav-item" href="alimentos.html"><span class="nav-icon" aria-hidden="true">⌕</span> Consulta alimentar</a>
+        <a class="nav-item" href="comunidade.html"><span class="nav-icon" aria-hidden="true">↗</span> Comunidade</a>
+      </nav>
+      <div class="sidebar-bottom">
+        <div class="sidebar-prompt"><span class="prompt-line"></span><p>Seu ritmo já é<br><strong>um bom começo.</strong></p></div>
+      </div>
+    </aside>
+
+    <main id="principal" class="app-main">
+      <header class="workspace-header">
+        <div class="breadcrumb"><a href="dashboard.html">TTFIT</a><span aria-hidden="true">/</span><strong>PERFIL</strong></div>
+        <div class="header-actions">
+          <details class="language-control">
+            <summary><span aria-hidden="true">文</span> Idioma <strong>PT</strong><span class="chevron" aria-hidden="true">⌄</span></summary>
+            <div class="language-menu"><span class="language-current">Português <small>ATUAL</small></span><span class="language-disabled">English <small>EM BREVE</small></span><p>A tradução do conteúdo ainda não está disponível.</p></div>
+          </details>
+          <details class="user-control">
+            <summary class="user-chip"><span class="user-avatar" id="user-avatar">F</span><span class="user-name" id="user-name">Fratta</span><span class="chevron user-chevron" aria-hidden="true">⌄</span></summary>
+            <div class="user-menu"><a class="user-menu-item" href="perfil.html">Meu perfil <span aria-hidden="true">↗</span></a><button class="user-menu-item user-menu-logout" type="button" data-logout>Sair <span aria-hidden="true">↩</span></button></div>
+          </details>
+        </div>
+      </header>
+
+      <div class="page-content profile-page-content">
+        <section class="dashboard-intro profile-page-intro">
+          <div>
+            <span class="eyebrow eyebrow-dark">SEU ESPAÇO PESSOAL</span>
+            <h1>Seu perfil<span class="red-period">.</span><br><span class="intro-light">Do seu jeito.</span></h1>
+            <p>Atualize suas informações de saúde e atividade para acompanhar seu ritmo.</p>
+          </div>
+          <a class="button button-outline" href="dashboard.html"><span aria-hidden="true">←</span> Voltar à visão geral</a>
+        </section>
+
+        <section class="profile-settings" aria-labelledby="profile-settings-title">
+          <div class="section-heading">
+            <div><span class="eyebrow eyebrow-dark">INFORMAÇÕES PESSOAIS</span><h2 id="profile-settings-title">Dados do perfil</h2></div>
+          </div>
+          <div class="profile-panel profile-settings-panel">
+            <div class="profile-identity">
+              <span class="profile-identity-avatar" id="profile-avatar" aria-hidden="true">F</span>
+              <div><h3 id="profile-name">Fratta</h3><p id="profile-email">teste@gmail.com</p></div>
+            </div>
+            <form id="profile-form" class="profile-form" novalidate>
+              <div class="form-grid profile-form-grid">
+                <div><label class="field-label" for="profile-weight-input">Peso atual (kg)</label><input class="text-input" id="profile-weight-input" type="number" name="peso" min="20" max="350" step="0.1" required></div>
+                <div><label class="field-label" for="profile-height-input">Altura (cm)</label><input class="text-input" id="profile-height-input" type="number" name="altura" min="100" max="240" step="1" required></div>
+                <div><label class="field-label" for="profile-age-input">Idade</label><input class="text-input" id="profile-age-input" type="number" name="idade" min="13" max="120" required></div>
+                <div><label class="field-label" for="profile-focus-input">Seu foco</label><select class="text-input" id="profile-focus-input" name="foco" required><option>Perda de peso</option><option>Ganho de massa</option><option>Manutenção</option></select></div>
+                <div><label class="field-label" for="profile-activity-input">Atividade física</label><select class="text-input" id="profile-activity-input" name="atividade" required><option>Leve</option><option>Moderada</option><option>Intensa</option></select></div>
+                <div><label class="field-label" for="profile-days-input">Dias com exercício na semana</label><select class="text-input" id="profile-days-input" name="dias" required><option value="0">0</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option></select></div>
+              </div>
+              <button class="button button-primary" type="submit">Salvar alterações <span aria-hidden="true">→</span></button>
+              <p class="form-message" id="profile-feedback" role="status" aria-live="polite"></p>
+            </form>
+          </div>
+        </section>
+      </div>
+    </main>
+  </div>
+</body>
+</html>

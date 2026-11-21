@@ -4,10 +4,11 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#f3f0eb">
-  <meta name="description" content="Consulte a composição nutricional de alimentos por 100 gramas no protótipo TTFIT.">
+  <meta name="description" content="Consulte a composição nutricional de alimentos por 100 gramas no TTFIT.">
   <title>Consulta alimentar | TTFIT</title>
   <link rel="stylesheet" href="styles.css">
   <script defer src="js/demo-store.js"></script>
+  <script defer src="js/user-menu.js"></script>
   <script defer src="js/alimentos.js"></script>
 </head>
 <body class="app-page">
@@ -26,7 +27,6 @@
       </nav>
       <div class="sidebar-bottom">
         <div class="sidebar-prompt"><span class="prompt-line"></span><p>Informação clara<br><strong>para escolhas conscientes.</strong></p></div>
-        <a class="nav-item nav-item-muted logout-link" href="index.html"><span class="nav-icon" aria-hidden="true">↩</span> Sair</a>
       </div>
     </aside>
 
@@ -36,9 +36,12 @@
         <div class="header-actions">
           <details class="language-control">
             <summary><span aria-hidden="true">文</span> Idioma <strong>PT</strong><span class="chevron" aria-hidden="true">⌄</span></summary>
-            <div class="language-menu"><span class="language-current">Português <small>ATUAL</small></span><span class="language-disabled">English <small>EM BREVE</small></span><p>Seletor visual nesta versão de demonstração.</p></div>
+            <div class="language-menu"><span class="language-current">Português <small>ATUAL</small></span><span class="language-disabled">English <small>EM BREVE</small></span><p>A tradução do conteúdo ainda não está disponível.</p></div>
           </details>
-          <div class="user-chip"><span class="user-avatar" id="user-avatar">CN</span><span id="user-name">Camila Nunes</span></div>
+          <details class="user-control">
+            <summary class="user-chip"><span class="user-avatar" id="user-avatar">FR</span><span class="user-name" id="user-name">Fratta</span><span class="chevron user-chevron" aria-hidden="true">⌄</span></summary>
+            <div class="user-menu"><a class="user-menu-item" href="perfil.html">Meu perfil <span aria-hidden="true">↗</span></a><button class="user-menu-item user-menu-logout" type="button" data-logout>Sair <span aria-hidden="true">↩</span></button></div>
+          </details>
         </div>
       </header>
 
@@ -86,7 +89,7 @@
         </section>
 
         <a class="button button-dark back-button" href="dashboard.html"><span aria-hidden="true">←</span> Voltar para a tela principal</a>
-        <p class="disclaimer">Valores de referência variam conforme alimento e preparo. A consulta é demonstrativa e não substitui orientação profissional.</p>
+        <p class="disclaimer">Valores de referência variam conforme alimento e preparo. Esta consulta não substitui orientação profissional.</p>
       </div>
     </main>
   </div>

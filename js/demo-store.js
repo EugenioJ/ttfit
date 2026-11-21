@@ -10,7 +10,7 @@
   const PASSWORD_ITERATIONS = 100000;
 
   const DEMO_PROFILE = Object.freeze({
-    name: "Camila Nunes",
+    name: "Fratta",
     weight: 68.4,
     heightCm: 166,
     age: 28,
@@ -28,11 +28,11 @@
   }
 
   function writeStorage(storage, key, value) {
-    if (!storage) throw new Error("O armazenamento local não está disponível neste navegador.");
+    if (!storage) throw new Error("Não foi possível salvar suas informações.");
     try {
       storage.setItem(key, value);
     } catch (_error) {
-      throw new Error("Não foi possível salvar os dados neste navegador. Verifique as permissões de armazenamento.");
+      throw new Error("Não foi possível salvar suas informações. Verifique as permissões do navegador.");
     }
   }
 
@@ -40,7 +40,7 @@
     try {
       if (storage) storage.removeItem(key);
     } catch (_error) {
-      // A sessão continua sendo apenas demonstrativa se o navegador bloquear o armazenamento.
+      // A sessão não poderá ser removida se o navegador bloquear a limpeza do armazenamento.
     }
   }
 
@@ -115,7 +115,7 @@
     const normalized = normalizeEmail(email);
     if (normalized === DEMO_EMAIL) {
       const saved = readJson(globalThis.localStorage, profileKey(normalized), null);
-      return cleanProfile(saved || DEMO_PROFILE, DEMO_PROFILE.name);
+      return cleanProfile(saved ? { ...saved, name: DEMO_PROFILE.name } : DEMO_PROFILE, DEMO_PROFILE.name);
     }
     const user = readUsers().find((item) => item.email === normalized);
     return cleanProfile(user && user.profile ? user.profile : initialProfile(user && user.name), user && user.name);
@@ -140,14 +140,16 @@
 
   function saveProfile(email, profile) {
     const normalized = normalizeEmail(email);
-    const cleaned = cleanProfile(profile, profile.name);
+    const cleaned = normalized === DEMO_EMAIL
+      ? cleanProfile({ ...profile, name: DEMO_PROFILE.name }, DEMO_PROFILE.name)
+      : cleanProfile(profile, profile.name);
     if (normalized === DEMO_EMAIL) {
       writeStorage(globalThis.localStorage, profileKey(normalized), JSON.stringify(cleaned));
       return cleaned;
     }
     const users = readUsers();
     const index = users.findIndex((item) => item.email === normalized);
-    if (index < 0) throw new Error("Não encontramos este perfil neste navegador.");
+    if (index < 0) throw new Error("Não encontramos este perfil.");
     users[index] = { ...users[index], name: cleaned.name, profile: cleaned };
     writeStorage(globalThis.localStorage, USERS_KEY, JSON.stringify(users));
     return cleaned;
@@ -165,7 +167,7 @@
 
   async function hashPassword(password, saltBytes) {
     if (!globalThis.crypto || !globalThis.crypto.subtle) {
-      throw new Error("Este navegador não oferece a proteção necessária para o cadastro local. Use a conta de apresentação.");
+      throw new Error("Este navegador não oferece a proteção necessária para criar a conta. Use a conta de teste.");
     }
     const key = await globalThis.crypto.subtle.importKey(
       "raw",
@@ -191,29 +193,29 @@
 
     const user = readUsers().find((item) => item.email === normalized);
     if (!user || !user.passwordSalt || !user.passwordHash) {
-      return { ok: false, message: "E-mail ou senha não correspondem a uma conta deste navegador." };
+      return { ok: false, message: "E-mail ou senha incorretos." };
     }
 
     try {
       const salt = base64ToBytes(user.passwordSalt);
       const candidate = bytesToBase64(await hashPassword(password, salt));
       if (candidate !== user.passwordHash) {
-        return { ok: false, message: "E-mail ou senha não correspondem a uma conta deste navegador." };
+        return { ok: false, message: "E-mail ou senha incorretos." };
       }
       setSession(normalized, remember);
       return { ok: true, isDemo: false };
     } catch (error) {
-      return { ok: false, message: error.message || "Não foi possível validar o acesso neste navegador." };
+      return { ok: false, message: error.message || "Não foi possível validar o acesso." };
     }
   }
 
   async function register(account) {
     const email = normalizeEmail(account.email);
     if (email === DEMO_EMAIL || readUsers().some((item) => item.email === email)) {
-      return { ok: false, message: "Já existe um perfil local com este e-mail." };
+      return { ok: false, message: "Já existe uma conta com este e-mail." };
     }
     if (!globalThis.crypto || !globalThis.crypto.subtle || !globalThis.crypto.getRandomValues) {
-      return { ok: false, message: "Este navegador não oferece a proteção necessária para o cadastro local. Use a conta de apresentação." };
+      return { ok: false, message: "Este navegador não oferece a proteção necessária para criar a conta. Use a conta de teste." };
     }
 
     const salt = globalThis.crypto.getRandomValues(new Uint8Array(16));
