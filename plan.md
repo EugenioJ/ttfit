@@ -2,7 +2,7 @@
 
 ## Escopo e arquitetura
 
-Evoluir o site existente sem redesenhar o produto: preservar vermelho TTFIT, carvão e marfim, o wordmark, a hierarquia editorial e a responsividade. O projeto continuará em HTML, CSS e JavaScript no navegador e compatível com hospedagem estática. Não haverá conexão com o MySQL do professor nem com o servidor PHP, habilitação de servidor ou banco Manus, inclusão de Python ou publicação nesta etapa.
+Evoluir o site existente sem redesenhar o produto: preservar vermelho TTFIT, carvão e marfim, o wordmark, a hierarquia editorial e a responsividade. O projeto continuará em HTML, CSS e JavaScript no navegador e compatível com hospedagem estática. Não haverá conexão com o MySQL do professor nem com o servidor PHP, inclusão de Python ou backend. A transferência do código ao GitHub é separada de qualquer publicação do site.
 
 Manter a conta de teste `teste@gmail.com` / `teste`, preenchida manualmente, sem botão de acesso automático. Na interface, não exibir rótulos que identifiquem o site como demonstração nem mensagens sobre dados armazenados localmente, ranking fictício ou dados locais. Não afirmar que há sincronização em nuvem ou que o ranking reflete dados reais. A recuperação por e-mail não envia mensagem. O nome da conta de teste será Fratta.
 
@@ -20,11 +20,11 @@ Manter a conta de teste `teste@gmail.com` / `teste`, preenchida manualmente, sem
 - `styles.css`: tokens, componentes existentes, menus acessíveis, página Perfil e responsividade.
 - `js/demo-store.js`, `js/auth.js`, `js/user-menu.js`, `js/dashboard.js`, `js/perfil.js`, `js/alimentos.js`, `js/comunidade.js`: sessão e perfis no navegador, validações, menu do usuário, pesquisa e interações.
 - `food-data.json`: referências nutricionais por 100 g, preparo, valores não informados e fontes.
-- `manus-routes.json`: manifesto sincronizado com as rotas HTML, inclusive Perfil.
-- `dist/`: build estático com as páginas, CSS, scripts, catálogo e manifesto.
+- Manifesto de rotas do ambiente de desenvolvimento: sincronizado com as rotas HTML, inclusive Perfil, sem fazer parte do site estático final.
+- `dist/`: build estático com as páginas, CSS, scripts e catálogo de alimentos.
 
 ## Direção visual e limites
 
 Reutilizar a estética editorial esportiva já aprovada: vermelho TTFIT `#E5483F`, preto/carvão e marfim; leitura rápida, acolhedora e sem promessas clínicas; navegação lateral e adaptação em coluna no celular; tipografia e elementos atuais. O menu do usuário reutiliza o padrão de `<details>` do controle de idioma. Não introduzir mudanças severas no padrão visual. Manter o aviso de que informações de saúde não substituem orientação profissional, sem acrescentar alegações de sincronização ou autenticidade dos dados.
 
-Não executar migrações, não acessar o banco do professor, não incluir Python ou serviço de backend e não habilitar infraestrutura de servidor/banco da Manus. A publicação da versão alterada permanece bloqueada até autorização explícita posterior. O código será salvo como checkpoint do projeto, sem acionar publicação ou conectar ao GitHub do usuário.
+Não executar migrações, não acessar o banco do professor, não incluir Python ou serviço de backend. A publicação do site não será acionada nesta etapa; o código será salvo e transferido ao novo repositório privado aprovado no GitHub.
