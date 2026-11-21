@@ -194,11 +194,12 @@ img { max-width: 100%; display: block; }
 .edit-form label .text-input { min-height: 42px; font-size: 11px; }
 .edit-form .field-label { margin-bottom: 6px; }
 .edit-form .button { min-height: 42px; padding: 0 12px; font-size: 10px; }
-.dashboard-grid { display: grid; grid-template-columns: minmax(0,1.4fr) minmax(260px,.8fr); gap: 18px; align-items: start; margin-top: 28px; }
+.dashboard-grid { display: grid; grid-template-columns: minmax(0,1.4fr) minmax(260px,.8fr); gap: 18px; align-items: stretch; margin-top: 0; }
+.ranking-section { min-width: 0; display: flex; flex-direction: column; }
 .section-heading-compact { margin-bottom: 14px; }
 .ranking-period { color: #a09990; font-size: 8px; font-weight: 700; letter-spacing: .1em; }
 .ranking-period span { padding-left: 4px; color: var(--red); font-size: 12px; }
-.ranking-panel { padding: 4px 16px 11px; }
+.ranking-panel { flex: 1; padding: 4px 16px 11px; }
 .ranking-list { margin: 0; padding: 0; list-style: none; }
 .ranking-row { min-height: 69px; display: grid; grid-template-columns: 25px 36px minmax(0,1fr) auto; align-items: center; gap: 10px; border-bottom: 1px solid #efebe5; }
 .ranking-row:last-child { border-bottom: 0; }
@@ -215,8 +216,8 @@ img { max-width: 100%; display: block; }
 .rank-count { display: grid; justify-items: end; gap: 3px; }
 .rank-count strong { font: 700 16px var(--font-display); }
 .ranking-footnote { margin: 3px 0 0; padding: 10px 0 0; border-top: 1px solid #efebe5; color: #a49d95; font-size: 8px; }
-.impact-column { display: grid; gap: 11px; }
-.impact-card { position: relative; min-height: 242px; overflow: hidden; padding: 22px; border-radius: var(--radius-md); background: var(--ink); color: #fff; }
+.impact-column { min-width: 0; display: flex; }
+.impact-card { position: relative; flex: 1; min-height: 242px; overflow: hidden; padding: 22px; border-radius: var(--radius-md); background: var(--ink); color: #fff; }
 .impact-card::after { content: ''; position: absolute; right: -48px; bottom: -77px; width: 205px; height: 205px; border: 1px solid rgba(229,72,63,.35); border-radius: 50%; box-shadow: 0 0 0 25px rgba(229,72,63,.05), 0 0 0 50px rgba(229,72,63,.035); }
 .impact-index { position: relative; z-index: 1; color: rgba(255,255,255,.44); font: 700 9px var(--font-display); letter-spacing: .12em; }
 .impact-index span { font: 600 8px var(--font-body); }
@@ -228,13 +229,6 @@ img { max-width: 100%; display: block; }
 .impact-card h2 { position: relative; z-index: 1; margin: 13px 0 7px; font: 700 22px var(--font-display); letter-spacing: -.05em; }
 .impact-card p { position: relative; z-index: 1; max-width: 260px; margin: 0; color: rgba(255,255,255,.63); font-size: 10px; line-height: 1.7; }
 .impact-tag { position: absolute; z-index: 1; left: 22px; bottom: 20px; color: rgba(255,255,255,.5); font-size: 7px; font-weight: 700; letter-spacing: .12em; }
-.food-callout { min-height: 64px; display: flex; align-items: center; gap: 11px; padding: 11px 13px; border: 1px solid #e6e0d8; border-radius: 13px; background: var(--card); transition: border-color .16s ease, transform .16s ease; }
-.food-callout:hover { transform: translateY(-1px); border-color: #c9bfb3; }
-.food-callout-icon { width: 32px; height: 32px; display: grid; flex: 0 0 32px; place-items: center; border-radius: 9px; background: #fae3df; color: var(--red-dark); font-size: 20px; }
-.food-callout > span:nth-child(2) { display: grid; gap: 3px; }
-.food-callout small { color: #a19a91; font-size: 7px; font-weight: 700; letter-spacing: .1em; }
-.food-callout strong { color: #36322e; font-size: 10px; }
-.callout-arrow { margin-left: auto; color: var(--red-dark); }
 .disclaimer { margin: 20px 0 0; color: #a19a91; font-size: 9px; line-height: 1.6; }
 
 /* Consulta alimentar */
@@ -340,7 +334,7 @@ img { max-width: 100%; display: block; }
   .metric-card-days { grid-column: 1 / -1; min-height: 92px; }
   .edit-form { grid-template-columns: repeat(2,minmax(0,1fr)); }
   .edit-form .button { grid-column: 1 / -1; }
-  .dashboard-grid { grid-template-columns: 1fr; gap: 25px; margin-top: 25px; }
+  .dashboard-grid { grid-template-columns: 1fr; gap: 25px; margin-top: 0; }
   .impact-card { min-height: 225px; }
   .sample-label { margin-top: 2px; }
   .food-intro { margin-bottom: 22px; }
