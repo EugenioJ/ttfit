@@ -8,4 +8,6 @@
 - [x] **Identidade visual e acessibilidade:** preservar o padrão vermelho/preto/marfim e a responsividade; manter o wordmark TTFIT; retirar o selo da plataforma e as imagens externas de marca das páginas; garantir que as páginas não dependam do armazenamento de imagens do ambiente de desenvolvimento; manter o aviso de orientação médica/nutricional.
 - [x] **Visão geral — botões e cards:** manter somente o botão superior “Consultar alimento”; remover o botão inferior duplicado; alinhar lado a lado e nivelar os cards da prévia da semana e do propósito.
 - [x] **Limites estáticos:** manter somente HTML, CSS e JavaScript no site; não incluir Python, integrar ao MySQL do professor, chamar o servidor PHP ou habilitar backend; separar a transferência do repositório de qualquer publicação do site.
+- [x] **Fotos dos alimentos e créditos:** adicionar fotos locais para frango, arroz, feijão e macarrão; manter arquivos no repositório e registrar as fontes em `assets/food-image-sources.md`.
+- [x] **Rodapé de criadores:** exibir em todas as páginas um footer minimalista com Eugênio Júnior, Marcos Gomes, Vinicius Alex, Cesar Augusto e João Vitor.
 - [x] **Transferência ao GitHub:** criar o novo repositório privado e transferir o projeto após a confirmação do proprietário; não publicar o site como parte desta etapa.
